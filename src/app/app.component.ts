@@ -8,12 +8,18 @@ import {User} from './auth-form/interfaces/user';
 })
 export class AppComponent {
 
+  remember = false;
+
+  onRemember(value: boolean) {
+    this.remember = value;
+  }
+
   createUser(user: User) {
     console.log('Create account', user);
   }
 
   loginUser(user: User) {
-    console.log('Login', user);
+    console.log('Login', user, this.remember);
   }
 
 }
