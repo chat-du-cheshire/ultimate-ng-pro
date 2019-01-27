@@ -7,7 +7,7 @@ import {
   ViewChild,
   AfterViewInit,
   QueryList,
-  ViewChildren, ChangeDetectorRef
+  ViewChildren, ChangeDetectorRef, Renderer2, ElementRef
 } from '@angular/core';
 import {User} from '../../interfaces/user';
 import {AuthRememberComponent} from '../auth-remember/auth-remember.component';
@@ -27,9 +27,11 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
 
   @ViewChildren(AuthMessageComponent) messages: QueryList<AuthMessageComponent>;
 
+  @ViewChild('email') email: ElementRef;
+
   @Output() submitted: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(private cdr: ChangeDetectorRef, private r: Renderer2) {
   }
 
 
@@ -39,6 +41,10 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
 
   ngAfterViewInit() {
     // !!! Available only in AfterViewInit
+
+    this.r.setAttribute(this.email.nativeElement, 'placeholder', 'email@example.com');
+    this.r.addClass(this.email.nativeElement, 'email');
+    this.email.nativeElement.focus();
     if (this.messages) {
       this.messages.forEach((msgCmp) => {
         msgCmp.days = 7;
