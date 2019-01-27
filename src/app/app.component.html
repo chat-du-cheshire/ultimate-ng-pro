@@ -12,6 +12,11 @@
     <div #entry></div>
     <ng-container [ngTemplateOutlet]="tmpl" [ngTemplateOutletContext]="{$implicit: 'Alex', greet: 'Hi'}"></ng-container>
   </div>
+  <div>
+    <veemulated></veemulated>
+    <venone></venone>
+    <veshadowdom></veshadowdom>
+  </div>
   <ng-template #tmpl  let-name let-greet="greet">{{greet}}, {{name}}!</ng-template>
 </div>
 
