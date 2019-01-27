@@ -96,8 +96,8 @@ form {
   flex: 1 0;
   padding: 0 40px;
 }
-auth-form:first-child form {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+auth-form:not(:first-child) form {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 input {
   display: block;

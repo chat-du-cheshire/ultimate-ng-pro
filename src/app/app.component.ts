@@ -1,14 +1,26 @@
-import { Component } from '@angular/core';
+import {AfterContentInit, Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {User} from './auth-form/interfaces/user';
+import {CustomDynamicComponent} from './auth-form/components/custom-dynamic/custom-dynamic.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterContentInit {
+
+  viewIndex = 0;
+
+  @ViewChild('entry', {read: ViewContainerRef}) entry: ViewContainerRef;
 
   remember = false;
+
+  component: ComponentRef<CustomDynamicComponent>;
+
+  constructor(private resolver: ComponentFactoryResolver) {
+
+  }
+
 
   onRemember(value: boolean) {
     this.remember = value;
@@ -20,6 +32,22 @@ export class AppComponent {
 
   loginUser(user: User) {
     console.log('Login', user, this.remember);
+  }
+
+  ngAfterContentInit(): void {
+    const customDynamicFactory = this.resolver.resolveComponentFactory(CustomDynamicComponent);
+    this.entry.createComponent(customDynamicFactory);
+    this.component = this.entry.createComponent(customDynamicFactory, 0);
+    this.component.instance.text = 'La la la!';
+    this.component.instance.clickEvt.subscribe((val) => console.log(val));
+  }
+
+  destroyCmp() {
+    this.component.destroy();
+  }
+
+  moveComponent() {
+    this.entry.move(this.component.hostView, 1);
   }
 
 }

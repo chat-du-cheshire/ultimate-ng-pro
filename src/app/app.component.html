@@ -6,5 +6,10 @@
     <auth-remember (onRemember)="onRemember($event)"></auth-remember>
     <button type="submit">Login!</button>
   </auth-form>
+  <div>
+    <div #entry></div>
+    <button (click)="destroyCmp()">Destroy</button>
+    <button (click)="moveComponent()">Move!</button>
+  </div>
 </div>
 
