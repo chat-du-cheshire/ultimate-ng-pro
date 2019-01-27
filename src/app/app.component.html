@@ -11,5 +11,6 @@
     <button (click)="destroyCmp()">Destroy</button>
     <button (click)="moveComponent()">Move!</button>
   </div>
+  <ng-template #tmpl  let-name let-greet="greet">{{greet}}, {{name}}!</ng-template>
 </div>
 

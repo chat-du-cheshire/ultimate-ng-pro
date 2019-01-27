@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {AfterContentInit, Component, ComponentFactoryResolver, ComponentRef, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {User} from './auth-form/interfaces/user';
 import {CustomDynamicComponent} from './auth-form/components/custom-dynamic/custom-dynamic.component';
 
@@ -12,6 +12,7 @@ export class AppComponent implements AfterContentInit {
   viewIndex = 0;
 
   @ViewChild('entry', {read: ViewContainerRef}) entry: ViewContainerRef;
+  @ViewChild('tmpl', {read: TemplateRef}) tmpl: TemplateRef<any>;
 
   remember = false;
 
@@ -40,6 +41,8 @@ export class AppComponent implements AfterContentInit {
     this.component = this.entry.createComponent(customDynamicFactory, 0);
     this.component.instance.text = 'La la la!';
     this.component.instance.clickEvt.subscribe((val) => console.log(val));
+
+    this.entry.createEmbeddedView(this.tmpl, {$implicit: 'Max', greet: 'Hello'});
   }
 
   destroyCmp() {
