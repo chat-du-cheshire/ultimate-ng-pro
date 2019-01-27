@@ -1,4 +1,14 @@
-import {Component, Output, EventEmitter, AfterContentInit, ContentChild, ViewChild, AfterViewInit} from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  AfterContentInit,
+  ContentChild,
+  ViewChild,
+  AfterViewInit,
+  QueryList,
+  ViewChildren, ChangeDetectorRef
+} from '@angular/core';
 import {User} from '../../interfaces/user';
 import {AuthRememberComponent} from '../auth-remember/auth-remember.component';
 import {combineLatest} from 'rxjs';
@@ -15,23 +25,29 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
 
   @ContentChild(AuthRememberComponent) authRemember: AuthRememberComponent;
 
-  @ViewChild(AuthMessageComponent) message: AuthMessageComponent;
+  @ViewChildren(AuthMessageComponent) messages: QueryList<AuthMessageComponent>;
 
   @Output() submitted: EventEmitter<User> = new EventEmitter<User>();
+
+  constructor(private cdr: ChangeDetectorRef) {
+  }
+
 
   onSubmit(value: User) {
     this.submitted.emit(value);
   }
 
   ngAfterViewInit() {
-
+    // !!! Available only in AfterViewInit
+    if (this.messages) {
+      this.messages.forEach((msgCmp) => {
+        msgCmp.days = 7;
+        this.cdr.detectChanges(); // Tell Angular that he needs to detect changes
+      });
+    }
   }
 
   ngAfterContentInit() {
-    if (this.message) {
-      this.message.days = 7;
-    }
-
     if (this.authRemember) {
       this.authRemember.onRemember.subscribe((value) => this.showMessage = value);
     }
