@@ -8,10 +8,11 @@ import { CustomDynamicComponent } from './components/custom-dynamic/custom-dynam
 import { VENoneComponent } from './components/ViewEncapsulation/venone.component';
 import { VeshadowdomComponent } from './components/ViewEncapsulation/veshadowdom.component';
 import {VeemulatedComponent} from './components/ViewEncapsulation/veemulated.component';
+import { CdOnPushComponent } from './components/cd-on-push/cd-on-push.component';
 
 @NgModule({
-  declarations: [AuthFormComponent, AuthRememberComponent, AuthMessageComponent, CustomDynamicComponent, VENoneComponent, VeemulatedComponent, VeshadowdomComponent],
-  exports: [AuthFormComponent, AuthRememberComponent, VENoneComponent, VeemulatedComponent, VeshadowdomComponent],
+  declarations: [AuthFormComponent, AuthRememberComponent, AuthMessageComponent, CustomDynamicComponent, VENoneComponent, VeemulatedComponent, VeshadowdomComponent, CdOnPushComponent],
+  exports: [AuthFormComponent, AuthRememberComponent, VENoneComponent, VeemulatedComponent, VeshadowdomComponent, CdOnPushComponent],
   entryComponents: [CustomDynamicComponent],
   imports: [
     CommonModule,

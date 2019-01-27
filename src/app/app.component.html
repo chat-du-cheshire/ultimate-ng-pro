@@ -17,6 +17,14 @@
     <venone></venone>
     <veshadowdom></veshadowdom>
   </div>
+  <div>
+    <div>
+      <button (click)="changeObj()">Change Obj</button>
+      <button (click)="changeProp()">Change Prop "a"</button>
+    </div>
+    <div>{{obj | json}}</div>
+    <cd-on-push [a]="1" [b]="2" [obj]="obj"></cd-on-push>
+  </div>
   <ng-template #tmpl  let-name let-greet="greet">{{greet}}, {{name}}!</ng-template>
 </div>
 

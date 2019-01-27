@@ -18,6 +18,8 @@ export class AppComponent implements AfterContentInit {
 
   component: ComponentRef<CustomDynamicComponent>;
 
+  obj: { [key: string]: number | string } = {a: 1, b: 2, c: 3};
+
   constructor(private resolver: ComponentFactoryResolver) {
 
   }
@@ -51,6 +53,14 @@ export class AppComponent implements AfterContentInit {
 
   moveComponent() {
     this.entry.move(this.component.hostView, 1);
+  }
+
+  changeObj() {
+    this.obj = {a: 'a', b: 'b', c: 'c'};
+  }
+
+  changeProp() {
+    this.obj.a = 'asd';
   }
 
 }
