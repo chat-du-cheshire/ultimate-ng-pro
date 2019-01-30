@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {AuthFormModule} from './auth-form/auth-form.module';
+import {Route, RouterModule} from '@angular/router';
+import {AdvancedComponentsModule} from './modules/advanced-components/advanced-components.module';
+
+const routes: Route[] = [];
 
 @NgModule({
   declarations: [
@@ -10,7 +13,8 @@ import {AuthFormModule} from './auth-form/auth-form.module';
   ],
   imports: [
     BrowserModule,
-    AuthFormModule
+    AdvancedComponentsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
