@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {Route, RouterModule} from '@angular/router';
 import {AdvancedComponentsModule} from './modules/advanced-components/advanced-components.module';
+import {DirectivesModule} from './modules/directives/directives.module';
 
 const routes: Route[] = [];
 
@@ -14,6 +15,7 @@ const routes: Route[] = [];
   imports: [
     BrowserModule,
     AdvancedComponentsModule,
+    DirectivesModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
