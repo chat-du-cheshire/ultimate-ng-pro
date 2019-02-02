@@ -1,0 +1,6 @@
+<div>
+  <h3>Pipes</h3>
+  <ul>
+    <li *ngFor="let file of files">{{file.name}} {{file.size | toMb: 'Mb'}}</li>
+  </ul>
+</div>
