@@ -4,4 +4,9 @@
            type="text"
            placeholder="0000 0000 0000 0000"
            credit-card></label>
+  <label>
+    Enter your security code
+    <a tooltip="Last 3 digits" #tooltip=tooltip (mouseenter)="tooltip.show()" (mouseleave)="tooltip.hide()">(?)</a>
+    <input name="cvv" type="password" placeholder="***">
+  </label>
 </div>
