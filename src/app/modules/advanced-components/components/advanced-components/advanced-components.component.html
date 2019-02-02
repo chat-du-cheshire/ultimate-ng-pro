@@ -1,0 +1,28 @@
+<div>
+  <auth-form
+    (submitted)="loginUser($event)">
+    <h3>Login</h3>
+    <auth-remember (onRemember)="onRemember($event)"></auth-remember>
+    <button type="submit">Login!</button>
+  </auth-form>
+  <div>
+    <button (click)="destroyCmp()">Destroy</button>
+    <button (click)="moveComponent()">Move!</button>
+    <div #entry></div>
+    <ng-container [ngTemplateOutlet]="tmpl" [ngTemplateOutletContext]="{$implicit: 'Alex', greet: 'Hi'}"></ng-container>
+  </div>
+  <div>
+    <veemulated></veemulated>
+    <venone></venone>
+    <veshadowdom></veshadowdom>
+  </div>
+  <div>
+    <div>
+      <button (click)="changeObj()">Change Obj</button>
+      <button (click)="changeProp()">Change Prop "a"</button>
+    </div>
+    <div>{{obj | json}}</div>
+    <cd-on-push [a]="1" [b]="2" [obj]="obj"></cd-on-push>
+  </div>
+  <ng-template #tmpl  let-name let-greet="greet">{{greet}}, {{name}}!</ng-template>
+</div>
