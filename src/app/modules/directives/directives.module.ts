@@ -5,6 +5,7 @@ import {Route, RouterModule} from '@angular/router';
 import { CreditCardDirective } from './directives/credit-card.directive';
 import { TooltipDirective } from './directives/tooltip.directive';
 import { TooltipContainerComponent } from './components/tooltip-container/tooltip-container.component';
+import { MyForDirective } from './directives/my-for.directive';
 
 const routes: Route[] = [{
   path: 'directives',
@@ -12,7 +13,7 @@ const routes: Route[] = [{
 }];
 
 @NgModule({
-  declarations: [DirectivesComponent, CreditCardDirective, TooltipDirective, TooltipContainerComponent],
+  declarations: [DirectivesComponent, CreditCardDirective, TooltipDirective, TooltipContainerComponent, MyForDirective],
   entryComponents: [TooltipContainerComponent],
   imports: [
     CommonModule,

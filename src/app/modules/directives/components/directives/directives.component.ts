@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'directives',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectivesComponent implements OnInit {
 
-  constructor() { }
+  items = ['Foo', 'Bar', 'Baz'];
+
+  constructor() {
+  }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.items = [...this.items, 'Zoo'];
+    }, 2000);
   }
 
 }
