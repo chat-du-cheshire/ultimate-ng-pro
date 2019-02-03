@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {IFile} from '../../interfaces/IFile';
+import {ToMbPipe} from '../../pipes/to-mb.pipe';
 
 @Component({
   selector: 'pipes',
   templateUrl: './pipes.component.html',
-  styleUrls: ['./pipes.component.scss']
+  styleUrls: ['./pipes.component.scss'],
+  providers: [ToMbPipe]
 })
 export class PipesComponent implements OnInit {
 
@@ -16,7 +18,11 @@ export class PipesComponent implements OnInit {
     size: 987654
   }];
 
-  constructor() {
+  converted = this.files.map(
+    (file) => ({...file, size: this.toMb.transform(file.size, 'Mb')})
+  );
+
+  constructor(private toMb: ToMbPipe) {
   }
 
   ngOnInit() {
