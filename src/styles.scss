@@ -40,7 +40,6 @@ input[type=text],
 input[type=email],
 input[type=number],
 input[type=password] {
-  border: none;
   background: #fff;
   font-size: 13px;
   padding: 6px 30px 6px 10px;
@@ -86,7 +85,6 @@ auth-form:not(:first-child) form {
 }
 input {
   display: block;
-  border: none;
   background: #ffffff;
   font-size: 13px;
   padding: 6px 30px 6px 10px;

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormArray, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'stock-inventory',
@@ -12,7 +12,12 @@ export class StockInventoryComponent implements OnInit {
     store: new FormGroup({
       branch: new FormControl(''),
       code: new FormControl('')
-    })
+    }),
+    selector: new FormGroup({
+      product_id: new FormControl(''),
+      quantity: new FormControl(10)
+    }),
+    stock: new FormArray([])
   });
 
   constructor() {

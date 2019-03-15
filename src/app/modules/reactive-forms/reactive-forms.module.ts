@@ -4,6 +4,9 @@ import {ReactiveFormsComponent} from './components/reactive-forms/reactive-forms
 import {Route, RouterModule} from '@angular/router';
 import { StockInventoryComponent } from './components/stock-inventory/stock-inventory.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { StockBranchComponent } from './components/stock-branch/stock-branch.component';
+import { StockSelectorComponent } from './components/stock-selector/stock-selector.component';
+import { StockProductsComponent } from './components/stock-products/stock-products.component';
 
 const routes: Route[] = [{
   path: 'reactive-forms',
@@ -11,7 +14,7 @@ const routes: Route[] = [{
 }];
 
 @NgModule({
-  declarations: [ReactiveFormsComponent, StockInventoryComponent],
+  declarations: [ReactiveFormsComponent, StockInventoryComponent, StockBranchComponent, StockSelectorComponent, StockProductsComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
