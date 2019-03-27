@@ -6,7 +6,7 @@
           {{ item.value.product_id }}
         </div>
         <input formControlName="quantity" step="10" min="10" max="10000" type="number" placeholder="Quantity">
-        <button type="button">Remove</button>
+        <button type="button" (click)="onRemove(item, i)">Remove</button>
       </div>
     </div>
   </div>

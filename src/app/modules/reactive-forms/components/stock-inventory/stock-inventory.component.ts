@@ -79,6 +79,11 @@ export class StockInventoryComponent implements OnInit {
     control.push(this.createStock(stock));
   }
 
+  removeStock({index}) {
+    const control = this.form.get('stock') as FormArray;
+    control.removeAt(index);
+  }
+
   ngOnInit() {
   }
 
