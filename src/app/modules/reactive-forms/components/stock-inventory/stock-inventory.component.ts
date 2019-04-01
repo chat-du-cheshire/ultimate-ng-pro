@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {IProduct} from '../../interfaces/IProduct';
+import {StockInventoryService} from '../../services/stock-inventory.service';
+import {forkJoin} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {IItem} from '../../interfaces/IItem';
 
 @Component({
   selector: 'stock-inventory',
@@ -9,48 +13,9 @@ import {IProduct} from '../../interfaces/IProduct';
 })
 export class StockInventoryComponent implements OnInit {
 
-  products: IProduct[] = [
-    {
-      'id': 1,
-      'name': 'Stark',
-      'price': 3307
-    },
-    {
-      'id': 2,
-      'name': 'Maura',
-      'price': 5296
-    },
-    {
-      'id': 3,
-      'name': 'Rebecca',
-      'price': 9493
-    },
-    {
-      'id': 4,
-      'name': 'Sexton',
-      'price': 3826
-    },
-    {
-      'id': 5,
-      'name': 'Atkinson',
-      'price': 855
-    },
-    {
-      'id': 6,
-      'name': 'Shanna',
-      'price': 6859
-    },
-    {
-      'id': 7,
-      'name': 'Leticia',
-      'price': 5366
-    },
-    {
-      'id': 8,
-      'name': 'Hilary',
-      'price': 3733
-    }
-  ];
+  productMap = new Map<number, IProduct>();
+
+  products: IProduct[];
 
   form = this.fb.group({
     store: this.fb.group({
@@ -58,13 +23,10 @@ export class StockInventoryComponent implements OnInit {
       code: ''
     }),
     selector: this.createStock({}),
-    stock: this.fb.array([
-      this.createStock({product_id: 2, quantity: 50}),
-      this.createStock({product_id: 5, quantity: 20}),
-    ])
+    stock: this.fb.array([])
   });
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private stock: StockInventoryService) {
   }
 
   createStock(stock) {
@@ -85,6 +47,19 @@ export class StockInventoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    const items$ = this.stock.getCartItems();
+    const products$ = this.stock.getProducts();
+
+    forkJoin([products$, items$])
+      .subscribe(([products, items]: [IProduct[], IItem[]]) => {
+        products.forEach((prod: IProduct) => {
+          this.productMap.set(prod.id, prod);
+        });
+
+        items.forEach(item => this.addStock(item));
+
+        this.products = products;
+      });
   }
 
   onSubmit() {

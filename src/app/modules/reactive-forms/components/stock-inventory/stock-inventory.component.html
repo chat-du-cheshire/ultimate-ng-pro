@@ -3,11 +3,11 @@
 
     <stock-branch [parent]="form"></stock-branch>
     <stock-selector [parent]="form" [products]="products" (added)="addStock($event)"></stock-selector>
-    <stock-products [parent]="form" (removed)="removeStock($event)"></stock-products>
+    <stock-products [map]="productMap" [parent]="form" (removed)="removeStock($event)"></stock-products>
 
     <div class="stock-inventory__buttons">
       <button type="submit" [disabled]="form.invalid">Submit</button>
     </div>
-      <pre>{{form.value | json}}</pre>
+    <pre>{{form.value | json}}</pre>
   </form>
 </div>
