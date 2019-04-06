@@ -26,6 +26,8 @@ export class StockInventoryComponent implements OnInit {
     stock: this.fb.array([])
   });
 
+  total = 0;
+
   constructor(private fb: FormBuilder, private stock: StockInventoryService) {
   }
 
@@ -60,6 +62,12 @@ export class StockInventoryComponent implements OnInit {
 
         this.products = products;
       });
+
+    this.form.valueChanges.subscribe((value) => this.calcTotal(value.stock));
+  }
+
+  calcTotal(value: IItem[]) {
+    this.total = value.reduce((acc, item) => acc + (item.quantity * this.productMap.get(item.product_id).price), 0);
   }
 
   onSubmit() {
