@@ -33,7 +33,7 @@ export class StockInventoryComponent implements OnInit {
 
   createStock(stock) {
     return this.fb.group({
-      product_id: parseInt(stock.product_id, 10) || '',
+      product_id: parseInt(stock.product_id, 10) || null,
       quantity: stock.quantity || 10
     });
   }
