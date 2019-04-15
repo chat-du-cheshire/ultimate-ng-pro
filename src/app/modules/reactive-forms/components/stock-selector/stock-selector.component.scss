@@ -4,6 +4,10 @@
   border-bottom: 1px solid #ccc;
   position: relative;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   &__error {
     position: absolute;
     background: #B52D30;
@@ -31,21 +35,17 @@
     }
   }
 
-  & > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  select {
+    flex: 1 0;
+  }
 
-    select {
-      flex: 1 0;
-    }
-    button {
-      flex: 0 0 100px;
-      margin-left: 30px;
-    }
-    stock-counter {
-      flex: 0 0 50px;
-      margin-left: 30px;
-    }
+  button {
+    flex: 0 0 100px;
+    margin-left: 30px;
+  }
+
+  stock-counter {
+    flex: 0 0 50px;
+    margin-left: 30px;
   }
 }
