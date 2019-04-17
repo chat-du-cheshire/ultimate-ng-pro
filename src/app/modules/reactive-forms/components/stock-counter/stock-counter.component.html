@@ -3,8 +3,8 @@
     <div>
       <p>{{value}}</p>
       <div>
-        <button (click)="onIncrement()" [disabled]="value === max">+</button>
-        <button (click)="onDecrement()" [disabled]="value === min">-</button>
+        <button type="button" (click)="onIncrement()" [disabled]="value === max">+</button>
+        <button type="button" (click)="onDecrement()" [disabled]="value === min">-</button>
       </div>
     </div>
   </div>
