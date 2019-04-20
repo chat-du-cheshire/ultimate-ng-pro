@@ -23,6 +23,36 @@ export class StockCounterComponent implements ControlValueAccessor {
   @Input() max = 1000;
 
   value = 10;
+  focused: boolean;
+
+  onKeyDown(event: KeyboardEvent) {
+    const handler = {
+      ArrowUp: () => this.onIncrement(),
+      ArrowDown: () => this.onDecrement()
+    };
+
+    if (handler[event.code]) {
+      handler[event.code]();
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    this.onTouched();
+  }
+
+  onBlur(event: FocusEvent) {
+    this.focused = false;
+    event.preventDefault();
+    event.stopPropagation();
+    this.onTouched();
+  }
+
+  onFocus(event: FocusEvent) {
+    this.focused = true;
+    event.preventDefault();
+    event.stopPropagation();
+    this.onTouched();
+  }
 
   writeValue(value: number): void {
     this.value = value;

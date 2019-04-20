@@ -6,6 +6,11 @@
   background: rgba(0, 0, 0, 0.05);
   border-radius: 3px;
   overflow: hidden;
+
+  &.focused {
+    background: rgba(0, 0, 255, 0.05);
+  }
+
   & > div > div {
     display: flex;
     align-items: center;

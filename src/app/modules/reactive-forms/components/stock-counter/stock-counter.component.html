@@ -1,6 +1,6 @@
-<div class="stock-counter">
+<div class="stock-counter" [class.focused]="focused">
   <div>
-    <div>
+    <div tabindex="0" (blur)="onBlur($event)" (focus)="onFocus($event)" (keydown)="onKeyDown($event)">
       <p>{{value}}</p>
       <div>
         <button type="button" (click)="onIncrement()" [disabled]="value === max">+</button>
