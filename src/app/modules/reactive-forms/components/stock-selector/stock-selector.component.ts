@@ -13,7 +13,20 @@ export class StockSelectorComponent implements OnInit {
   @Input() products: IProduct[];
 
   @Output() added = new EventEmitter<any>();
-  constructor() { }
+
+  get stockExists() {
+    return (
+      this.parent.hasError('stockExists') &&
+      this.parent.get('selector.product_id').dirty
+    );
+  }
+
+  get notSelected() {
+    return !this.parent.get('selector.product_id').value;
+  }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -21,7 +34,7 @@ export class StockSelectorComponent implements OnInit {
   onAdd() {
     this.added.emit(this.parent.get('selector').value);
     this.parent.get('selector').reset({
-      product_id: null,
+      product_id: '',
       quantity: 10
     });
   }

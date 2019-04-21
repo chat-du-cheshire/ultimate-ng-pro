@@ -1,10 +1,11 @@
 <div [formGroup]="parent">
   <div class="stock-selector" formGroupName="selector">
     <select formControlName="product_id" type="text" placeholder="Product ID">
-      <option [value]="null">Select stock</option>
+      <option value="">Select stock</option>
       <option *ngFor="let product of products" [value]="product.id">{{product.name}}</option>
     </select>
     <stock-counter formControlName="quantity" [step]="10" [min]="10" [max]="10000"></stock-counter>
-    <button type="button" (click)="onAdd()">Add stock</button>
+    <button type="button" (click)="onAdd()" [disabled]="stockExists || notSelected">Add stock</button>
+    <div class="stock-selector__error" *ngIf="stockExists">Item already exists in stock</div>
   </div>
 </div>

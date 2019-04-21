@@ -25,7 +25,7 @@ export class StockInventoryComponent implements OnInit {
     }),
     selector: this.createStock({}),
     stock: this.fb.array([])
-  });
+  }, { validators: StockValidators.CheckStockExists });
 
   total = 0;
 
@@ -34,7 +34,7 @@ export class StockInventoryComponent implements OnInit {
 
   createStock(stock) {
     return this.fb.group({
-      product_id: parseInt(stock.product_id, 10) || null,
+      product_id: parseInt(stock.product_id, 10) || '',
       quantity: stock.quantity || 10
     });
   }
