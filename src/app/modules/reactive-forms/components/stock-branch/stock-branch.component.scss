@@ -4,6 +4,15 @@
   padding: 0 0 20px;
   display: block;
 }
+
+.form-control {
+  margin: 1rem 0;
+  input {
+    display: block;
+    width: 100%;
+  }
+}
+
 .error {
   background: #B52D30;
   color: #fff;
