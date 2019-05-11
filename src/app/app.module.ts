@@ -22,7 +22,7 @@ const routes: Route[] = [];
     PipesModule,
     NgxProReactiveFormsModule,
     NgxProRouterModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
