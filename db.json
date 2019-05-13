@@ -64,5 +64,66 @@
       "name": "Hilary",
       "price": 3733
     }
-  ]
+  ],
+  "messages": [{
+    "id": 1,
+    "folder": "trash",
+    "from": "Hortense Beart",
+    "summary": "Other incision of brain",
+    "timestamp": "1537288520"
+  }, {
+    "id": 2,
+    "folder": "trash",
+    "from": "Jayson Wudeland",
+    "summary": "Excision of hydrocele (of tunica vaginalis)",
+    "timestamp": "1537260994"
+  }, {
+    "id": 3,
+    "folder": "inbox",
+    "from": "Lazar Maffei",
+    "summary": "Therapeutic ultrasound of vessels of head and neck",
+    "timestamp": "1551692814"
+  }, {
+    "id": 4,
+    "folder": "inbox",
+    "from": "Bevin Ferretti",
+    "summary": "Resection of vessel with replacement, other vessels of head and neck",
+    "timestamp": "1557540145"
+  }, {
+    "id": 5,
+    "folder": "trash",
+    "from": "Korrie Van Dale",
+    "summary": "Repair of entropion or ectropion with lid reconstruction",
+    "timestamp": "1529337172"
+  }, {
+    "id": 6,
+    "folder": "inbox",
+    "from": "Griffith Mumbeson",
+    "summary": "Training in joint movements",
+    "timestamp": "1543437763"
+  }, {
+    "id": 7,
+    "folder": "inbox",
+    "from": "Maggi Coffin",
+    "summary": "Bilateral partial salpingectomy, not otherwise specified",
+    "timestamp": "1546732758"
+  }, {
+    "id": 8,
+    "folder": "trash",
+    "from": "Lucretia Westcar",
+    "summary": "Thoracoscopic excision of lesion or tissue of lung",
+    "timestamp": "1536892105"
+  }, {
+    "id": 9,
+    "folder": "trash",
+    "from": "Poul Jain",
+    "summary": "Diagnostic procedures on bone, not elsewhere classified, other bones",
+    "timestamp": "1542851449"
+  }, {
+    "id": 10,
+    "folder": "inbox",
+    "from": "Robinett Robeiro",
+    "summary": "Other hand tendon transfer or transplantation",
+    "timestamp": "1543862649"
+  }]
 }
