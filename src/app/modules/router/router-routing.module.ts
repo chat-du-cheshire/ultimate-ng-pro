@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {Route, RouterModule} from '@angular/router';
 import {RouterComponent} from './components/router/router.component';
 import {ROUTES} from './modules/mail/mail.module';
+import {MailViewComponent} from './modules/mail/components/mail-view/mail-view.component';
 
 const routes: Route[] = [{
   path: 'router',
