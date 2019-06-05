@@ -1,0 +1,16 @@
+<div class="stock-product" [formGroup]="parent">
+  <div formArrayName="stock">
+    <div *ngFor="let item of stocks; let i = index">
+      <div class="stock-product__content" [formGroupName]="i">
+        <div class="stock-product__name">
+          {{ getProduct(getItemValue(item).product_id).name }}
+        </div>
+        <div class="stock-product__price">
+          {{ getProduct(getItemValue(item).product_id).price * getItemValue(item).quantity | currency: 'EUR': true }}
+        </div>
+        <input formControlName="quantity" step="10" min="10" max="10000" type="number" placeholder="Quantity">
+        <button type="button" (click)="onRemove(item, i)">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>

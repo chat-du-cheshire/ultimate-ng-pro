@@ -6,6 +6,7 @@ import {Route, RouterModule} from '@angular/router';
 import {AdvancedComponentsModule} from './modules/advanced-components/advanced-components.module';
 import {DirectivesModule} from './modules/directives/directives.module';
 import {PipesModule} from './modules/pipes/pipes.module';
+import {NgxProReactiveFormsModule} from './modules/reactive-forms/reactive-forms.module';
 
 const routes: Route[] = [];
 
@@ -18,6 +19,7 @@ const routes: Route[] = [];
     AdvancedComponentsModule,
     DirectivesModule,
     PipesModule,
+    NgxProReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

@@ -1,0 +1,68 @@
+{
+  "branches": [
+    {
+      "id": "A001"
+    },
+    {
+      "id": "B001"
+    },
+    {
+      "id": "C001"
+    },
+    {
+      "id": "D001"
+    }
+  ],
+  "cart": [
+    {
+      "product_id": 1,
+      "quantity": 50
+    },
+    {
+      "product_id": 2,
+      "quantity": 40
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Stark",
+      "price": 3307
+    },
+    {
+      "id": 2,
+      "name": "Maura",
+      "price": 5296
+    },
+    {
+      "id": 3,
+      "name": "Rebecca",
+      "price": 9493
+    },
+    {
+      "id": 4,
+      "name": "Sexton",
+      "price": 3826
+    },
+    {
+      "id": 5,
+      "name": "Atkinson",
+      "price": 855
+    },
+    {
+      "id": 6,
+      "name": "Shanna",
+      "price": 6859
+    },
+    {
+      "id": 7,
+      "name": "Leticia",
+      "price": 5366
+    },
+    {
+      "id": 8,
+      "name": "Hilary",
+      "price": 3733
+    }
+  ]
+}
